@@ -13,12 +13,13 @@ function App() {
     console.log(Token)
     setUser(Token)
     setLogin(false)
-    document.getElementById("signInDiv").hidden = true
+    document.getElementById("signInDiv").hidden = true;
   }
   function handleSignout(e) {
     setLogin(true)
-    document.getElementById("signInDiv").hidden = false
     setUser([])
+    document.getElementById("signInDiv").hidden = false;
+    
   }
 
   useEffect(() => {
@@ -33,14 +34,14 @@ function App() {
       {theme: "outline", size: "large"}
     );
 
-    google.accounts.id.prompt();
+    // google.accounts.id.prompt();
 
   }, [user]);
 
   return (
     <div className="App">
       <h1>Google Login React App</h1>
-      {login && <div id="signInDiv" ></div>}
+      <div id="signInDiv" ></div>
       {!login &&
         <div>
           <img src={user.picture} alt="user.name"></img>
